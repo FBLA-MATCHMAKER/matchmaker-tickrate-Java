@@ -2,35 +2,26 @@ import java.util.Timer;
 
 import java.util.TimerTask;
 
-import java.util.Date;
-
 public class Program {
 
 	public static void main(String[] args) {
 
-		boolean loop = true;
+		Timer timer = new Timer();
 
-		while (loop = true) {
+		timer.scheduleAtFixedRate(new TimerTask() {
 
-			int interval = 15000;
+			@Override
 
-			Date timeToRun = new Date(System.currentTimeMillis() + interval);
+			public void run() {
 
-			Timer timer = new Timer();
+				System.out.println("TEST!");
 
-			timer.schedule(new TimerTask() {
+			}
 
-				public void run() {
-
-					System.out.println("Tick!");
-
-				}
-
-			}, timeToRun);
-
-		}
+		},
+				
+				0, 15000);   // 1000 Millisecond  = 1 second
 
 	}
 
 }
-
